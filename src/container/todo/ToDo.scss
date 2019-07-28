@@ -1,0 +1,25 @@
+@import "src/assets/sass-utils/mixins.scss";
+
+.ToDo {
+	&-overflow {
+		overflow-y: scroll;
+		width: 100%;
+		overflow: hidden;
+	}
+	&-content{
+		margin: 16px auto;
+		width: 756px;
+		@include mqMaxWidth('sm') {
+			width: 100%;
+		}
+
+	}
+	&-actions{
+		position: fixed;
+		right: 30px;
+		bottom: 30px;
+		button{
+			margin-left: 15px;
+		}
+	}
+}

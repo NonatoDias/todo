@@ -1,11 +1,12 @@
 import React from 'react';
-import './NavBar.scss';
+import classes from './NavBar.module.scss';
+import logo from "../../assets/img/todo.png"
 
 const NavBar = () => {
 	return (
-		<div className="div-navbar noselect">
-			<img className="img-title" src="img/todo.png" alt="" />
-			<h1 className="h1-title">Things to do</h1>
+		<div className={classes.NavBar}>
+			<img className={classes.logo} src={logo} alt="" />
+			<h1 className={classes.title}>Things to do</h1>
 		</div>
 	);
 };

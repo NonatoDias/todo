@@ -1,0 +1,85 @@
+$width-breakpoints: (
+	'lg': 1150px,
+	'md': 880px,
+	'sm': 768px,
+	'xs': 450px
+);
+
+/* ---------- MEDIA QUERY ---------- */
+
+@mixin mqMaxWidth($width) {
+	@if map_has_key($width-breakpoints, $width) {
+		$width: map_get($width-breakpoints, $width);
+
+		@media only screen and (max-width: $width) {
+			@content;
+		}
+	}
+}
+
+@mixin mqMinWidth($width) {
+	@if map_has_key($width-breakpoints, $width) {
+		$width: map_get($width-breakpoints, $width);
+
+		@media only screen and (min-width: $width) {
+			@content;
+		}
+	}
+}
+
+/* ----------- Z-INDEX ----------- */
+
+@function z($element, $list: '') {
+	@if $list == '' {
+		$list: $z-indexes;
+	}
+
+	$z-index: index($list, $element);
+
+	@if $z-index {
+		@return $z-index;
+	}
+
+	@warn 'There is no item "#{$element}" in this list; choose one of: #{$list}';
+	@return null;
+}
+
+/* ------------ COLOR ----------- */
+@mixin clickFeedbackColor($color) {
+	color: $color;
+	&:hover {
+		color: lighten($color, 8%);
+	}
+	&:active {
+		color: darken($color, 9%);
+	}
+	&:focus {
+		outline: none;
+	}
+}
+
+@mixin clickFeedbackBackground($bg) {
+	background-color: $bg;
+
+	&:hover {
+		background-color: lighten($bg, 3%);
+	}
+	&:active {
+		background-color: darken($bg, 6%);
+	}
+	&:focus {
+		outline: none;
+	}
+}
+
+@mixin borderFeedback() {
+	box-shadow: 0 0 0 1px #a6c8ff;
+	border: 1px solid #94b6ed;
+	outline: none;
+}
+
+@mixin focusFeedBack() {
+	&:focus {
+		@include borderFeedback();
+	}
+}

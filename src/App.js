@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.scss';
-import { NavBar } from './components/navBar/NavBar';
-import { ToDo } from './container/todo/todo';
+import { NavBar } from './components';
+import { ToDo } from './container/toDo/ToDo';
 
 function App() {
 	return (
