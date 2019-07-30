@@ -2,21 +2,26 @@ import React, { Component } from 'react';
 import './ToDo.scss';
 import { CircleButton, Card } from '../../components';
 import AddIcon from '../../assets/img/add.png';
+import { fetchItems } from '../../api/todoAPI';
 
 
 class ToDo extends Component {
 	state = {
-		items: [{
-			id: 1,
-			title: 'Title',
-			text: 'Text'
-		}],
-		isNewVisible: true
+		items: [],
+		isNewVisible: false
 	};
 
 	itemModel = {
 		title: 'Test title',
 		text: 'Test text'
+	};
+
+	componentDidMount(){
+		fetchItems().then(({data}) => {
+			this.setState({
+				items: data.items
+			})
+		})
 	}
 
 	addNewHandler = () => {
