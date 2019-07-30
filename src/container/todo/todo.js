@@ -60,7 +60,7 @@ class ToDo extends Component {
 						<div>
 						{this.state.isNewVisible && (
 							<Card
-								{...this.itemModel}
+								data={this.itemModel}
 								onSave={this.saveNewHandler}
 								onDelete={data => {this.setState({isNewVisible: false})}}
 							/>
@@ -71,7 +71,7 @@ class ToDo extends Component {
 								return (
 									<Card
 										key={item.id}
-										{...item}
+										data={item}
 										onSave={data => {
 											this.editHandler(data, i);
 										}}

@@ -1,3 +1,3 @@
-export * from './common/circleButton/CircleButton';
+export * from './circleButton/CircleButton';
 export * from './navBar/NavBar';
-export * from './common/card/Card';
+export * from './card/Card';

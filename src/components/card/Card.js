@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 
 const Card = props => {
 	const [editing, setEditing] = useState(false);
-	const [title, setTitle] = useState(props.title);
-	const [text, setText] = useState(props.text);
+	const [title, setTitle] = useState(props.data.title);
+	const [text, setText] = useState(props.data.text);
 
 	const editHandler = () => {
 		setEditing(true);
@@ -13,7 +13,7 @@ const Card = props => {
 
 	const deleteHandler = () => {
 		props.onDelete({
-			id: props.id,
+			...props.data,
 			title: title,
 			text: text
 		});
@@ -21,20 +21,21 @@ const Card = props => {
 
 	const saveHandler = () => {
 		props.onSave({
-			id: props.id || (new Date()).getTime(),
-			title: title,
-			text: text
+			...props.data,
+			id: props.data.id || (new Date()).getTime(),
+			title,
+			text
 		})
 		setEditing(false);
 	};
 
 	useEffect(()=> {
-		if(!props.id){
+		if(!props.data.id){
 			setEditing(true)
 		}
-		setTitle(props.title);
-		setText(props.text);
-	}, [props])
+		setTitle(props.data.title);
+		setText(props.data.text);
+	}, [props.data])
 
 
 	return (
@@ -48,7 +49,7 @@ const Card = props => {
 			<div className="div-card-description">
 				<div className="div-card-title">
 					{!editing ? (
-						<h1 className="h-card-title">{props.title}</h1>
+						<h1 className="h-card-title">{props.data.title}</h1>
 					) : (
 						<input
 							value={title}
@@ -58,7 +59,7 @@ const Card = props => {
 				</div>
 				<div className="p-card-text">
 					{!editing ? (
-						<h5 className="h-card-title">{props.text}</h5>
+						<h5 className="h-card-title">{props.data.text}</h5>
 					) : (
 						<input
 							value={text}
@@ -82,13 +83,19 @@ const Card = props => {
 };
 
 Card.propTypes = {
-	title: PropTypes.string,
-	text: PropTypes.string
+	data: PropTypes.shape({
+		title: PropTypes.string,
+		text: PropTypes.string
+	}),
+	onDelete: PropTypes.func,
+	onSave: PropTypes.func,
 };
 
 Card.defaultProps = {
-	title: 'No title',
-	text: 'No text'
+	data: {
+		title: 'No title',
+		text: 'No text'
+	}
 };
 
 export { Card };
