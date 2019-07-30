@@ -3,8 +3,7 @@
 .ToDo {
 	&-overflow {
 		overflow-y: scroll;
-		width: 100%;
-		overflow: hidden;
+		height: calc(100vh - 72px);
 	}
 	&-content{
 		margin: 16px auto;
