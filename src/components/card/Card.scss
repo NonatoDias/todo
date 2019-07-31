@@ -1,3 +1,5 @@
+@import "src/assets/sass-utils/mixins.scss";
+
 .Card {
 	background: #fff;
 	overflow: hidden;
@@ -5,12 +7,53 @@
 	margin: 8px;
 	box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
 
+	&-footer{
+		display: inline-block;
+		width: 100%;
+	}
+
+	.div-card__form{
+		&-row{
+			label{
+				color: #000;
+				line-height: 28px;
+				font-size: 21px;
+				padding-right: 10px;
+			}
+			input{
+				height: 36px;
+				margin-bottom: 15px;
+				border: 1px solid #b4b4b4;
+				background-color: #fff;
+				-webkit-box-shadow: 0 0 10px 0 hsla(0,0%,100%,.66);
+				box-shadow: 0 0 10px 0 hsla(0,0%,100%,.66);
+				padding: 10px 13px;
+				color: #666;
+				line-height: 22px;
+				font-size: 16px;
+			}
+		}
+	}
+
 	&-actions{
 		float: right;
 		padding: 0 20px 10px;
 		button{
-			padding: 5px;
+			color: white;
+			background: none;
+			border: none;
+			text-decoration: none;
+			padding: 0 8px;
+			min-width: 80px;
+			font-size: 15px;
+			padding: 6px 10px;
+			cursor: pointer;
 			margin-left: 5px;
+			@include clickFeedbackColor(#1565c0);
+			i{
+				font-size: 13px;
+				padding-right: 5px;
+			}
 		}
 	}
 }

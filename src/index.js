@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
+import './icons.scss';
 import App from './App';
 import * as serviceWorker from './sw/serviceWorkerRegister';
 import { BrowserRouter } from 'react-router-dom';

@@ -47,34 +47,44 @@ const Card = props => {
 				srcSet=""
 			/>
 			<div className="div-card-description">
-				<div className="div-card-title">
+				<div className="div-card__form">
 					{!editing ? (
 						<h1 className="h-card-title">{props.data.title}</h1>
 					) : (
-						<input
-							value={title}
-							onChange={(e)=>{setTitle(e.target.value)}}
-						/>
+						<div className="div-card__form-row">
+							<label>Title</label>
+							<input
+								value={title}
+								onChange={(e)=>{setTitle(e.target.value)}}
+							/>
+						</div>
 					)}
 				</div>
-				<div className="p-card-text">
+				<div className="div-card__form">
 					{!editing ? (
 						<h5 className="h-card-title">{props.data.text}</h5>
 					) : (
-						<input
-							value={text}
-							onChange={(e)=>{setText(e.target.value)}}
-						/>
+						<div className="div-card__form-row">
+							<label>Text</label>
+							<input
+								value={text}
+								onChange={(e)=>{setText(e.target.value)}}
+							/>
+						</div>
 					)}
 				</div>
+			</div>
+			<div className="Card-footer">
 				{!editing ? (
 					<div className="Card-actions">
-						<button onClick={editHandler}>Edit</button>
+						<button onClick={editHandler}>
+							<i className="icon-pencil"/> Edit
+						</button>
 					</div>
 				) : (
 					<div className="Card-actions">
-						<button onClick={deleteHandler}>Delete</button>
-						<button onClick={saveHandler}>Save</button>
+						<button onClick={deleteHandler}><i className="icon-cross"/> Delete</button>
+						<button onClick={saveHandler}><i className="icon-checkmark"/> Save</button>
 					</div>
 				)}
 			</div>

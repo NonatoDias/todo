@@ -11,7 +11,7 @@ const CircleButton = (props) => {
 	return (
 		<button {...p} className="CircleButton">
 			<span>
-				<img src={props.icon} alt="" />
+				<i className={props.icon} />
 			</span>
 		</button>
 	);

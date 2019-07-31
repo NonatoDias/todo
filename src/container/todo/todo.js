@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './ToDo.scss';
 import { CircleButton, Card } from '../../components';
-import AddIcon from '../../assets/img/add.png';
 import { fetchItems } from '../../api/todoAPI';
 
 
@@ -91,7 +90,7 @@ class ToDo extends Component {
 				</div>
 				<div className="ToDo-actions">
 					<CircleButton
-						icon={AddIcon}
+						icon="icon-plus"
 						onClick={this.addNewHandler}
 					/>
 				</div>
