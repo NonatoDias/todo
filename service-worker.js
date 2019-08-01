@@ -1,4 +1,4 @@
-importScripts("/precache-manifest.0045ad0a6b3983348a3478a87592d464.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+importScripts("/todo/precache-manifest.1f78bff820c9f5786182af9cfa868a8a.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 const cfg = {
 	prefix: 'todo-react'
