@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './ToDo.scss';
 import { CircleButton, Card } from '../../components';
-import { fetchItems } from '../../api/todoAPI';
+//import { fetchItems } from '../../api/todoAPI';
 
 
 class ToDo extends Component {
@@ -16,11 +16,11 @@ class ToDo extends Component {
 	};
 
 	componentDidMount(){
-		fetchItems().then(({data}) => {
+		/*fetchItems().then(({data}) => {
 			this.setState({
 				items: data.items
-			})
-		})
+			});
+		})*/
 	}
 
 	addNewHandler = () => {

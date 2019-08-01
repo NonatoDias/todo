@@ -7,7 +7,7 @@ import * as serviceWorker from './sw/serviceWorkerRegister';
 import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
-	<BrowserRouter basename="/todo">
+	<BrowserRouter basename="/">
 		<App />
 	</BrowserRouter>,
 	document.getElementById('root')

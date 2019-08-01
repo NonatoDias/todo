@@ -21,3 +21,10 @@ workbox.routing.registerNavigationRoute(
 		blacklist: [/^\/_/, /\/[^\/]+\.[^\/]+$/]
 	}
 );
+
+self.addEventListener('fetch', event => {
+	if (event.request.url === '/') {
+		const staleWhileRevalidate = new workbox.strategies.StaleWhileRevalidate();
+		event.respondWith(staleWhileRevalidate.handle({ event }));
+	}
+});
