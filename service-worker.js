@@ -1,4 +1,4 @@
-importScripts("/todo/precache-manifest.400f714dab7bf434d2809fd1a932e56a.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+importScripts("/precache-manifest.0045ad0a6b3983348a3478a87592d464.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 const cfg = {
 	prefix: 'todo-react'
@@ -23,4 +23,11 @@ workbox.routing.registerNavigationRoute(
 		blacklist: [/^\/_/, /\/[^\/]+\.[^\/]+$/]
 	}
 );
+
+self.addEventListener('fetch', event => {
+	if (event.request.url === '/') {
+		const staleWhileRevalidate = new workbox.strategies.StaleWhileRevalidate();
+		event.respondWith(staleWhileRevalidate.handle({ event }));
+	}
+});
 
